@@ -8,10 +8,22 @@ function findSquareLC (val) {
     return (val - 1) + val;
 }
 
+function makeLine (num, squareLC, line) {
+    var string;
+    if (line == squareLC || line == 1) {
+        string = num.repeat(squareLC) + "<br>";
+    } else {
+        var subnum = num - 1;
+        console.log(subnum)
+        string = num + subnum.toString().repeat(squareLC - 2) + num + "<br>";
+    }
+    return string;
+}
+
 function makeString(num, squareLC) {
     var string = "";
     for (var i = squareLC; i > 0; i--) {
-        string += num.repeat(squareLC) + "<br>";
+        string += makeLine (num, squareLC, i);
     }
 
     return string
