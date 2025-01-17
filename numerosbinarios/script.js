@@ -40,7 +40,7 @@ function upBinario(num) {
         var casas = num.length - acharZero(num, false);
 
         var newCasa = "1" + "0".repeat(casas - 1);
-        res = num.slice(0, -casas) + newCasa;
+        res = num.slice(0, - casas) + newCasa;
         console.log(acharZero(num));
     } else {
         res = novaCasa(num);

@@ -2,13 +2,24 @@ var output = $("#output");
 var range = $("#range");
 var numRange = $("#numRange");
 
+
 function findSquareLC (val) {
-    calc = Number.isInteger(val);
-    console.log(val - 1 + calc)
-    return calc;
+    val = parseInt(val);
+    return (val - 1) + val;
 }
+
+function makeString(num, squareLC) {
+    var string = "";
+    for (var i = squareLC; i > 0; i--) {
+        string += num.repeat(squareLC) + "<br>";
+    }
+
+    return string
+}
+
 function resultString(val){
-    var string = findSquareLC(val);
+    var squareLC = findSquareLC(val);
+    var string = makeString(val, squareLC)
     return string;
 }
 
