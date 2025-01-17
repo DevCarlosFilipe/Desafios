@@ -22,6 +22,8 @@ function makeLine (num, squareLC, line) {
 
 function makeString(num, squareLC) {
     var string = "";
+    
+    // definindo linha para cada repetição
     for (var i = squareLC; i > 0; i--) {
         string += makeLine (num, squareLC, i);
     }
