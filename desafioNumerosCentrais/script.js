@@ -2,41 +2,48 @@ var output = $("#output");
 var range = $("#range");
 var numRange = $("#numRange");
 
-
-function findSquareLC (val) {
+function findSquareLC(val) {
     val = parseInt(val);
-    return (val - 1) + val;
+    return val - 1 + val;
 }
 
-function makeLine (num, squareLC, line) {
-    var string;
-    if (line == squareLC || line == 1) {
-        string = num.repeat(squareLC) + "<br>";
-    } else {
-        var subnum = num - 1;
-        console.log(subnum)
-        string = num + subnum.toString().repeat(squareLC - 2) + num + "<br>";
+function makeLine(num, squareLC, line) {
+    var string = "";
+    var carac = num;
+    var invert = false;
+    for (var i = squareLC; i > 0; i--) {
+        if (true) {
+            if (invert) {
+                carac += 1;
+            } else {
+                carac -= 1;
+            }
+
+            if (carac == 1) {
+                invert = true;
+            }
+        } 
+        string += carac;
     }
     return string;
 }
 
 function makeString(num, squareLC) {
     var string = "";
-    
+
     // definindo linha para cada repetição
     for (var i = squareLC; i > 0; i--) {
-        string += makeLine (num, squareLC, i);
+        string += makeLine(num, squareLC, i) + "<br>";
     }
 
-    return string
-}
-
-function resultString(val){
-    var squareLC = findSquareLC(val);
-    var string = makeString(val, squareLC)
     return string;
 }
 
+function resultString(val) {
+    var squareLC = findSquareLC(val);
+    var string = makeString(val, squareLC);
+    return string;
+}
 
 // Ativação de função com redundância, uma para cada cenário de alteração de valor Ao Vivo
 range.mousemove(function () {
