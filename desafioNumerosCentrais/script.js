@@ -10,21 +10,35 @@ function findSquareLC(val) {
 function makeLine(num, squareLC, line) {
     var string = "";
     var carac = num;
-    var invert = false;
-    for (var i = squareLC; i > 0; i--) {
-        if (true) {
-            if (invert) {
-                carac += 1;
-            } else {
-                carac -= 1;
-            }
+    var sqNow = squareLC;
+    var inverter = false;
+    var run = false;
 
-            if (carac == 1) {
-                invert = true;
+    for (var i = squareLC; i > 0; i--) {
+        if (
+            i < squareLC
+        ) {
+            run = true;
+        } else {
+            run = false;
+        }
+
+        if(carac == 1) {
+            inverter = true;
+        }
+
+        if (run) {
+            if (inverter) {
+                carac++;
+            } else {
+                carac--;
             }
         } 
+
+
         string += carac;
     }
+
     return string;
 }
 
